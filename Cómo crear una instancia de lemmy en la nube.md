@@ -109,7 +109,7 @@ snap install --classic certbot
 Para asegurarte de que todo está bien configurado, primero corre:
 
 ```
-certbot certonly --nginx --dry-run -d lemmex.xyz,www.lemmex.xyz  
+certbot certonly --nginx --dry-run -d dominio.xyz,www.dominio.xyz  
 
 ```
 
