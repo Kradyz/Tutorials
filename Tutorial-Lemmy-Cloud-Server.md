@@ -110,7 +110,7 @@ sudo systemctl status nginx
 
 Once the nginx is running, you use the browser to go ito your domain. You should see the following page, indicating that the connection to the server is being handled appropriately:
 
-![[Pasted image 20211211002801.png]]
+![Pasted image 20211211002801](https://user-images.githubusercontent.com/81911574/145698065-7d0bee26-ff54-4d39-8755-dea60d78f867.png)
 
 If you don't see this page:
 - The DNS could be setup incorrectly.
