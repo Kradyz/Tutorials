@@ -94,7 +94,8 @@ sudo systemctl start nginx
 
 Con el navegador, entra a tu dominio. Deberías ver la siguiente página:
 
-![[Pasted image 20211211002801.png]]
+![Pasted image 20211211002801](https://user-images.githubusercontent.com/81911574/145698065-7d0bee26-ff54-4d39-8755-dea60d78f867.png)
+
 
 (8) Instala certbot. Esta aplicación te permite generar los certificados SSL, que son necesarios pare establecer una conección segura mediante https. Es necesario tenerlos para que activar la federación con otras instancias. 
 
