@@ -1,4 +1,4 @@
-## Cómo crear una instancia de lemmy en la nube.md
+## Cómo crear una instancia de lemmy en la nube
 
 La documentación oficial de Lemmy la puedes encontrar en este sitio:
 https://join-lemmy.org/docs/es/about/about.html
