@@ -233,11 +233,17 @@ Para activar la federación, agreguen lo siguiente arriba de la linea que dice "
   }
 ```
 
-
+Para comenzar la instancia, utiliza el siguiente comando:
 
 
 ```
 docker-compose up -d
 ```
 
-Entra de nuevo a tu dominio en tu navegador y deberías poder ver la instancia ya lista! 
+Entra de nuevo a tu dominio en tu navegador y deberías poder ver tu instancia ya lista! 
+
+Para apagar la instancia temporalmente, puedes usar el siguiente comando desde la carpeta /var/www/dominio.xyz:
+
+```
+docker-compose down
+```
