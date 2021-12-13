@@ -281,3 +281,17 @@ To stop the instance, you can use:
 ```
 docker-compose down
 ```
+
+
+Some tips:
+
+- Make sure to disable login to the server via password, and use an ssh key instead for authentication. This will prevent brute-force attacks.
+
+I ran into some issues with federation, which I eventually discovered were caused by the server's DNS lookup settings. To avoid this potential issue, install resolvconf by running the following command:
+
+```
+apt install resolvconf
+```
+
+- For extra security, look into how to set up a firewall correctly. The firewall program is called 'ufw'.
+
