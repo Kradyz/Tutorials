@@ -119,11 +119,8 @@ If you don't see this page:
 
 (8) We now need to install certbot. This program will allow us to generate the SSL certificates, which are necessary to establish a secure HTTPS connection. This step is necessary to enable federation between instances later on.
 
-Certbot is not available via apt, so we must install the snap package manager before installing it.
-
 ```
-apt -y install snapd
-snap install --classic certbot 
+apt install certbot python3-certbot-nginx
 ```
 
 (9) We will now generate the SSL certificates.
