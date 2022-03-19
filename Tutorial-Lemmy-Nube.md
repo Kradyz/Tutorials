@@ -104,8 +104,7 @@ Con el navegador, entra a tu dominio. Deberías ver la siguiente página:
 (8) Instala certbot. Esta aplicación te permite generar los certificados SSL, que son necesarios pare establecer una conección segura mediante https. Es necesario tenerlos para que activar la federación con otras instancias. 
 
 ```
-apt -y install snapd
-snap install --classic certbot 
+apt install certbot python3-certbot-nginx
 ```
 
 (9) Ahora puedes generar los certificados SSL.
