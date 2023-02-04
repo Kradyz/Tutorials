@@ -1,0 +1,61 @@
+{
+  # for more info about the config, check out the documentation
+  # https://join-lemmy.org/docs/en/administration/configuration.html
+
+  setup: {
+    # username for the admin user
+    admin_username: "Admin"
+    # password for the admin user
+    admin_password: "typeyourpasswordhere"
+    # name of the site (can be changed later)
+    site_name: "lemmy"
+    require_email_verification: false
+    require_application: true
+    application_question: "string"
+  }
+
+  # the domain name of your instance (eg "lemmy.ml")
+  hostname: "{DOMAIN}"
+  # address where lemmy should listen for incoming requests
+  bind: "0.0.0.0"
+  # port where lemmy should listen for incoming requests
+  port: 8536
+  tls_enabled: true
+  # settings related to the postgresql database
+  # address where pictrs is available
+
+  pictrs: {
+      url: "http://pictrs:8080/"
+      # api_key: "API_KEY"
+  }
+
+
+
+database: {
+    # name of the postgres database for lemmy
+    database: "lemmy"
+    # username to connect to postgres
+    user: "lemmy"
+    # password to connect to postgres
+    password: "{DB_PASSWORD}"
+    # host where postgres is running
+    host: "postgres"
+    # port where postgres can be accessed
+    port: 5432
+    # maximum number of active sql connections
+    pool_size: 5
+  }
+
+#email: {
+#  # Hostname and port of the smtp server
+#  smtp_server: "postfix:25"
+#  # Address to send emails from, eg noreply@your-instance.com
+#  smtp_from_address: "Lemmy <noreply@example.com>"
+#  # Whether or not smtp connections should use tls. Can be none, tls, or starttls
+#  tls_type: "none"
+#}
+
+
+
+}
+

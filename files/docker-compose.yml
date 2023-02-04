@@ -1,0 +1,63 @@
+version: '2.2'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=lemmy
+      - POSTGRES_PASSWORD={DB_PASSWORD}
+      - POSTGRES_DB=lemmy
+    container_name: lemmy_postgres_1
+    volumes:
+      - ./volumes/postgres:/var/lib/postgresql/data
+    restart: always
+
+  lemmy:
+    image: dessalines/lemmy:0.17.0
+    ports:
+      - "127.0.0.1:8536:8536"
+    restart: always
+    environment:
+      - RUST_LOG="warn,lemmy_server=info,lemmy_api=info,lemmy_api_common=info,lemmy_api_crud=info,lemmy_apub=info,lemmy_db_schema=info,lemmy_db_views=info,lemmy_db_views_actor=info,lemmy_db_views_moderator=info,lemmy_routes=info,lemmy_utils=info,lemmy_websocket=info"
+    container_name: lemmy_lemmy_1
+    volumes:
+      - ./lemmy.hjson:/config/config.hjson
+    depends_on:
+      - postgres
+      - pictrs
+
+  lemmy-ui:
+    image: dessalines/lemmy-ui:0.17.0
+    ports:
+      - "127.0.0.1:1235:1234"
+    restart: always
+    environment:
+      - LEMMY_UI_LEMMY_INTERNAL_HOST=lemmy:8536
+      - LEMMY_UI_LEMMY_EXTERNAL_HOST={DOMAIN}
+      - LEMMY_UI_HTTPS=true
+    container_name: lemmy_lemmy-ui_1
+    volumes:
+      - ./volumes/lemmy-ui/extra_themes:/app/extra_themes
+    depends_on: 
+      - lemmy
+
+  pictrs:
+    image: asonix/pictrs:0.3.0-beta.11 
+    ports: 
+      - "127.0.0.1:8537:8080"
+    user: 991:991
+    container_name: lemmy_pictrs_1
+    volumes:
+      - ./volumes/pictrs:/mnt
+    restart: always
+
+    #  postfix:
+    #    image: mwader/postfix-relay
+    #    environment:
+    #      - POSTFIX_myhostname=lemmy.xyz
+    #      - POSTFIX_inet_protocols=ipv4
+    #      - OPENDKIM_DOMAINS={DOMAIN}
+    #    volumes:
+    #      - ./volumes/opendkim:/etc/opendkim/keys/YOUR-DOMAIN
+    #    restart: "always"
+    #
